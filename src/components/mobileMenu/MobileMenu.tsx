@@ -9,17 +9,15 @@ import {
   DrawerCloseButton,
   Button,
   Text,
-  TableContainer,
   InputGroup,
   InputRightElement,
   Input,
 } from "@chakra-ui/react";
-import Image from "next/image";
-import { BsSearch, BsFillHeartFill } from "react-icons/bs";
-import { BiHome, BiSolidMoviePlay, BiSolidUserCircle } from "react-icons/bi";
-import { IoTvSharp } from "react-icons/io5";
+import { BsSearch, BsHeart } from "react-icons/bs";
+import { BiHome, BiMovie, BiUserCircle } from "react-icons/bi";
+import { PiTelevisionThin } from "react-icons/pi";
 import styles from "./mobileMenu.module.scss";
-
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 interface IMobileMenu {
   isOpenMobileMenu: boolean;
   onCloseMobileMenu: () => void;
@@ -29,10 +27,10 @@ interface IMobileMenu {
 
 const mobileMenuItems = [
   { name: "Home", href: "/", id: 1, icon: BiHome },
-  { name: "Movies", href: "/movies", id: 2, icon: BiSolidMoviePlay },
-  { name: "TV Shows", href: "/tv-shows", id: 3, icon: IoTvSharp },
-  { name: "My favorites", href: "/my-favorites", id: 4, icon: BsFillHeartFill },
-  { name: "My account", href: "/my-account", id: 5, icon: BiSolidUserCircle },
+  { name: "Movies", href: "/movies", id: 2, icon: BiMovie },
+  { name: "TV Shows", href: "/tv-shows", id: 3, icon: PiTelevisionThin },
+  { name: "My favorites", href: "/my-favorites", id: 4, icon: BsHeart },
+  { name: "My account", href: "/my-account", id: 5, icon: BiUserCircle },
 ];
 
 const MobileMenu: React.FC<IMobileMenu> = ({
@@ -70,8 +68,12 @@ const MobileMenu: React.FC<IMobileMenu> = ({
             <ul className={styles.mobileMenuUl}>
               {mobileMenuItems.map((item) => (
                 <li key={item.id}>
-                  <item.icon></item.icon>
-                  {item.name}
+                  <span>
+                    <item.icon></item.icon>
+                    {item.name}
+                  </span>
+
+                  <MdOutlineKeyboardArrowRight />
                 </li>
               ))}
             </ul>
