@@ -11,7 +11,7 @@ const Footer = () => {
         p={4}
         bgColor={"transparent"}
         backdropFilter={"blur(8px)"}
-        borderTop={"1px solid rgba(255, 255, 255, 0.1)"}
+        borderTop={"1px solid #d9d9d94e"}
       >
         <Logo />
       </Box>

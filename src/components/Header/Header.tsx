@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   Box,
   ButtonGroup,
@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { BsFillSuitHeartFill, BsFillCartFill, BsSearch } from "react-icons/bs";
 import { BiMenu } from "react-icons/bi";
-import Image from "next/image";
 import styles from "./header.module.scss";
 import CartMenu from "../cartMenu/CartMenu";
 import MobileMenu from "../mobileMenu/MobileMenu";
@@ -41,13 +40,14 @@ const Header = () => {
         justifyContent={"space-between"}
       >
         <Logo />
-
-        <InputGroup w={"30%"} display={{ base: "none", md: "block" }}>
-          <InputRightElement pointerEvents="none">
-            <BsSearch color="gray.300" />
-          </InputRightElement>
-          <Input variant="filled" placeholder="Search..." />
-        </InputGroup>
+        <form>
+          <InputGroup w={"100%"} display={{ base: "none", md: "block" }}>
+            <InputRightElement pointerEvents="none">
+              <BsSearch color="gray.300" />
+            </InputRightElement>
+            <Input variant="filled" placeholder="Search..." />
+          </InputGroup>
+        </form>
 
         <ButtonGroup variant="outline" spacing="6">
           <Icon
