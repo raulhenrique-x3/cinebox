@@ -3,6 +3,7 @@ import MovieCard from "@/components/MovieCard/MovieCard";
 import { useGetPopularMovieData } from "@/services/homeData";
 import { Box, Text } from "@chakra-ui/react";
 import styles from "./index.module.scss";
+import Footer from "@/components/Footer/Footer";
 export default function Page() {
   const { data, error, isLoading, isError } = useGetPopularMovieData();
 
@@ -37,6 +38,7 @@ export default function Page() {
           />
         ))}
       </div>
+      <Footer />
     </Box>
   );
 }

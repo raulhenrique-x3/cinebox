@@ -15,6 +15,7 @@ import Image from "next/image";
 import styles from "./header.module.scss";
 import CartMenu from "../cartMenu/CartMenu";
 import MobileMenu from "../mobileMenu/MobileMenu";
+import Logo from "../Logo/Logo";
 
 const Header = () => {
   const {
@@ -39,18 +40,7 @@ const Header = () => {
         alignItems={"center"}
         justifyContent={"space-between"}
       >
-        <Box bg="transparent" display={"flex"} alignItems={"center"} gap={4}>
-          <Image
-            className={styles.logoImage}
-            src="/logo.jpeg"
-            alt={"Cinebox logo"}
-            width={48}
-            height={48}
-          />
-          <Text fontSize="2xl" as={"b"} color={"#fff"}>
-            Cinebox
-          </Text>
-        </Box>
+        <Logo />
 
         <InputGroup w={"30%"} display={{ base: "none", md: "block" }}>
           <InputRightElement pointerEvents="none">
