@@ -27,12 +27,12 @@ export default function Page() {
             original_language={movie.original_language}
             original_title={movie.original_title}
             overview={movie.overview}
-            popularity={0}
+            popularity={movie.popularity}
             release_date={movie.release_date}
             title={movie.title}
-            video={false}
-            vote_average={0}
-            vote_count={0}
+            video={movie.video}
+            vote_average={movie.vote_average}
+            vote_count={movie.vote_count}
             key={movie.id}
           />
         ))}
