@@ -1,7 +1,7 @@
 import { IMovie } from "@/interfaces/movie";
 import { Box, Button, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./movieCard.module.scss";
 import { formatDateToMonthYear } from "@/utils/dateTransformation";
 import { useCart } from "@/hooks/useCart";
