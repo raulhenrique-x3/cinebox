@@ -1,0 +1,12 @@
+.headerContainer {
+  width: 100%;
+  position: fixed;
+  border-bottom: 1px solid #d9d9d94e;
+  backdrop-filter: blur(8px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  top: 0;
+  z-index: 1;
+}
+.logoImage {
+  border-radius: 50%;
+}

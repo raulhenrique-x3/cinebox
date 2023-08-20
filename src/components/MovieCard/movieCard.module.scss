@@ -1,0 +1,28 @@
+.movieCardContainer {
+  .movieCardHover {
+    opacity: 0;
+  }
+
+  &:hover {
+    .movieCardHover {
+      opacity: 1;
+    }
+  }
+}
+
+.movieCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  &:hover {
+    transform: scale(1.05);
+    filter: contrast(2) grayscale(3) blur(2px) opacity(0.3);
+  }
+}

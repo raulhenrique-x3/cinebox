@@ -1,0 +1,41 @@
+.movieCardContainer {
+  display: grid;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 1200px;
+  justify-items: center;
+  position: relative;
+  top: 8rem;
+}
+
+@media (min-width: 1024px) {
+  .movieCardContainer {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    align-items: center;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .movieCardContainer {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    align-items: center;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 540px) {
+  .movieCardContainer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    align-items: center;
+  }
+}
+
+@media (max-width: 539px) and (min-width: 460px) {
+  .movieCardContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(20, 1fr);
+    align-items: center;
+  }
+}

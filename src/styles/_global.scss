@@ -1,0 +1,27 @@
+@import "./fonts";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $primary-font;
+}
+
+body {
+  background-color: hsla(213, 97%, 27%, 1) !important;
+  background-image: radial-gradient(
+      at 53% 12%,
+      hsla(213, 97%, 27%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 33% 47%, hsla(200, 100%, 35%, 1) 0px, transparent 50%),
+    radial-gradient(at 85% 15%, hsla(194, 100%, 39%, 1) 0px, transparent 50%),
+    radial-gradient(at 70% 14%, hsla(190, 100%, 42%, 1) 0px, transparent 50%),
+    radial-gradient(at 26% 43%, hsla(190, 74%, 58%, 1) 0px, transparent 50%),
+    radial-gradient(at 63% 27%, hsla(189, 74%, 75%, 1) 0px, transparent 50%),
+    radial-gradient(at 87% 67%, hsla(190, 76%, 88%, 1) 0px, transparent 50%) !important;
+  background-size: 100% 100% !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-position: center !important;
+}
