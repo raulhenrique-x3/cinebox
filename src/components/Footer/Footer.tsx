@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <Box
         position={"relative"}
-        bottom={"-8rem"}
+        bottom={"-5rem"}
         p={4}
         bgColor={"transparent"}
         backdropFilter={"blur(8px)"}

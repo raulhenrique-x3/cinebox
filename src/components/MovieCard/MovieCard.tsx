@@ -1,7 +1,7 @@
 import { IMovie } from "@/interfaces/movie";
 import { Box, Button, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import React from "react";
+import React, { useMemo } from "react";
 import styles from "./movieCard.module.scss";
 import { formatDateToMonthYear } from "@/utils/dateTransformation";
 import { useCart } from "@/hooks/useCart";
@@ -15,15 +15,17 @@ const MovieCard: React.FC<IMovie> = ({
   release_date,
 }) => {
   const { updateCart } = useCart();
-  const moviePrice = (290 * Math.random() + 10).toFixed(2) as unknown as number;
+  const moviePrice = useMemo(() => +(Math.random() * 280 + 10).toFixed(2), []);
+
   return (
-    <div className={styles.movieCardContainer}>
-      <Box
-        width={"20%"}
-        position={"absolute"}
-        zIndex={2}
-        className={styles.movieCardHover}
-      >
+    <div className={styles.movieCardImage}>
+      <Image
+        src={IMAGE_URL + poster_path}
+        alt={IMAGE_URL + backdrop_path}
+        width={312}
+        height={560}
+      />
+      <div className={styles.movieCardHover}>
         <Text fontSize="2xl" color={"#fff"} fontWeight={"bold"}>
           {title}
         </Text>
@@ -47,14 +49,7 @@ const MovieCard: React.FC<IMovie> = ({
         >
           Buy
         </Button>
-      </Box>
-      <Image
-        src={IMAGE_URL + poster_path}
-        alt={IMAGE_URL + backdrop_path}
-        width={312}
-        height={560}
-        className={styles.movieCardImage}
-      />
+      </div>
     </div>
   );
 };

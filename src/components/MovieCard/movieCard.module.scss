@@ -1,28 +1,46 @@
 .movieCardContainer {
-  .movieCardHover {
-    opacity: 0;
-  }
+  position: relative;
+}
 
-  &:hover {
-    .movieCardHover {
-      opacity: 1;
-    }
-  }
+.movieCardHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .movieCardImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border-radius: 8px;
-  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  transition: all 0.3s ease-in-out;
+}
 
-  &:hover {
-    transform: scale(1.05);
-    filter: contrast(2) grayscale(3) blur(2px) opacity(0.3);
-  }
+.movieCardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+.movieCardImage:hover img {
+  transform: scale(1.05);
+  filter: contrast(2) grayscale(3) blur(2px) opacity(0.3);
+}
+
+.movieCardImage:hover .movieCardHover {
+  opacity: 1;
 }

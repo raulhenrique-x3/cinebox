@@ -1,16 +1,34 @@
 import Header from "@/components/Header/Header";
 import MovieCard from "@/components/MovieCard/MovieCard";
 import { useGetPopularMovieData } from "@/services/homeData";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Skeleton, Text } from "@chakra-ui/react";
 import styles from "./index.module.scss";
 import Footer from "@/components/Footer/Footer";
 export default function Page() {
   const { data, error, isLoading, isError } = useGetPopularMovieData();
 
-  if (isError)
+  if (isError || error)
     return (
       <Box>
-        <Text>Failed to get movies</Text>
+        <Text fontSize={64}>Failed to get movies</Text>
+      </Box>
+    );
+
+  if (isLoading)
+    return (
+      <Box>
+        <Header />
+
+        <div className={styles.movieCardContainer}>
+          {Array.from({ length: 20 }).map((_, index) => (
+            <Skeleton
+              key={index}
+              width={"100%"}
+              height={560}
+              borderRadius={"10px"}
+            />
+          ))}
+        </div>
       </Box>
     );
 
@@ -18,7 +36,7 @@ export default function Page() {
     <Box>
       <Header />
       <div className={styles.movieCardContainer}>
-        {data?.results.map((movie) => (
+        {data?.results?.map((movie) => (
           <MovieCard
             poster_path={movie.poster_path}
             backdrop_path={movie.backdrop_path}
