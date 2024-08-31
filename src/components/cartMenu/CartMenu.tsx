@@ -1,3 +1,4 @@
+import React from "react";
 import { useCart } from "@/hooks/useCart";
 import {
   Drawer,
@@ -14,6 +15,7 @@ import {
   Tr,
   Td,
   TableContainer,
+  Box,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { BsFillCartXFill } from "react-icons/bs";
@@ -21,18 +23,13 @@ import { BsFillCartXFill } from "react-icons/bs";
 interface ICartMenu {
   isOpenCart: boolean;
   onCloseCart: () => void;
-  onOpen: () => void;
-  btnRef: any;
+  btnRef: {
+    current: HTMLButtonElement;
+  };
 }
 
-const CartMenu: React.FC<ICartMenu> = ({
-  isOpenCart,
-  onCloseCart,
-  onOpen,
-  btnRef,
-}) => {
+const CartMenu: React.FC<ICartMenu> = ({ isOpenCart, onCloseCart, btnRef }) => {
   const { cart, clearCart, removeFromCart } = useCart();
-
   const handleClearCart = () => {
     clearCart();
   };
@@ -47,6 +44,7 @@ const CartMenu: React.FC<ICartMenu> = ({
       placement="right"
       onClose={onCloseCart}
       finalFocusRef={btnRef}
+      size={"lg"}
     >
       <DrawerOverlay />
       <DrawerContent>
@@ -61,10 +59,29 @@ const CartMenu: React.FC<ICartMenu> = ({
               <Table variant="simple">
                 <Tbody>
                   <Tr>
-                    <Td display={"flex"} alignItems={"center"}>
-                      <Image width={32} height={32} src={movie.img} alt={""} />
-                      <Td>{movie.title.slice(0, 16)}...</Td>
-                      <Td>${movie.price}</Td>
+                    <Td
+                      display={"flex"}
+                      alignItems={"center"}
+                      justifyContent={"space-between"}
+                    >
+                      <Box display={"flex"} alignItems={"center"} gap={"12px"}>
+                        <Image
+                          width={32}
+                          height={32}
+                          src={movie.img}
+                          alt={movie.title}
+                        />
+                        <Text>{movie.title}</Text>
+                      </Box>
+                      <Box display={"flex"} alignItems={"center"} gap={"12px"}>
+                        <Text>${movie.price}</Text>
+                        <Button
+                          background={"none"}
+                          onClick={() => removeItemFromCart(movie.id)}
+                        >
+                          <Text color={"red.500"}>X</Text>
+                        </Button>
+                      </Box>
                     </Td>
                   </Tr>
                 </Tbody>
