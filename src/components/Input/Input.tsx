@@ -11,7 +11,7 @@ interface IInputComponent extends InputProps {
   children?: React.ReactNode;
 }
 
-const InputComponent: React.FC<IInputComponent> = (w) => {
+const InputComponent: React.FC<IInputComponent> = () => {
   return (
     <InputGroup w={"30%"}>
       <InputRightElement pointerEvents="none">

@@ -1,5 +1,5 @@
 import { IMovie } from "@/interfaces/movie";
-import { Box, Button, Text } from "@chakra-ui/react";
+import { Button, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useMemo } from "react";
 import styles from "./movieCard.module.scss";

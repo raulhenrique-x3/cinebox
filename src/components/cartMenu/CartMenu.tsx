@@ -23,9 +23,7 @@ import { BsFillCartXFill } from "react-icons/bs";
 interface ICartMenu {
   isOpenCart: boolean;
   onCloseCart: () => void;
-  btnRef: {
-    current: HTMLButtonElement;
-  };
+  btnRef: React.RefObject<HTMLButtonElement | null>;
 }
 
 const CartMenu: React.FC<ICartMenu> = ({ isOpenCart, onCloseCart, btnRef }) => {
@@ -43,7 +41,11 @@ const CartMenu: React.FC<ICartMenu> = ({ isOpenCart, onCloseCart, btnRef }) => {
       isOpen={isOpenCart}
       placement="right"
       onClose={onCloseCart}
-      finalFocusRef={btnRef}
+      finalFocusRef={
+        btnRef.current
+          ? (btnRef as React.RefObject<HTMLButtonElement>)
+          : undefined
+      }
       size={"lg"}
     >
       <DrawerOverlay />

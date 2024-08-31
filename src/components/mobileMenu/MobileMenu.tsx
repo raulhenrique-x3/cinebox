@@ -22,7 +22,7 @@ interface IMobileMenu {
   isOpenMobileMenu: boolean;
   onCloseMobileMenu: () => void;
   onOpenMobileMenu: () => void;
-  btnRef: any;
+  btnRef: React.RefObject<HTMLButtonElement | null>;
 }
 
 const mobileMenuItems = [
@@ -36,7 +36,6 @@ const mobileMenuItems = [
 const MobileMenu: React.FC<IMobileMenu> = ({
   isOpenMobileMenu,
   onCloseMobileMenu,
-  onOpenMobileMenu,
   btnRef,
 }) => {
   return (
@@ -44,7 +43,11 @@ const MobileMenu: React.FC<IMobileMenu> = ({
       isOpen={isOpenMobileMenu}
       placement="right"
       onClose={onCloseMobileMenu}
-      finalFocusRef={btnRef}
+      finalFocusRef={
+        btnRef.current
+          ? (btnRef as React.RefObject<HTMLButtonElement>)
+          : undefined
+      }
     >
       <DrawerOverlay />
       <DrawerContent>

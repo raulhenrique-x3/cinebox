@@ -1,3 +1,4 @@
+import React from "react";
 import Header from "@/components/Header/Header";
 import MovieCard from "@/components/MovieCard/MovieCard";
 import { useGetPopularMovieData } from "@/services/homeData";

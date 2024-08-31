@@ -11,7 +11,7 @@ export async function getPopularMovieData(): Promise<IMovieResponse> {
     );
     return res.json();
   } catch (error) {
-    throw new Error("Failed to fetch data");
+    throw new Error("Failed to fetch data", error as Error);
   }
 }
 

@@ -3,7 +3,6 @@ import {
   Box,
   ButtonGroup,
   Input,
-  Text,
   Icon,
   InputGroup,
   InputRightElement,
@@ -29,7 +28,9 @@ const Header = () => {
     onClose: onCloseMobileMenu,
   } = useDisclosure();
 
-  const btnRef: any = useRef();
+  const btnRef = useRef<HTMLButtonElement>(
+    null as unknown as HTMLButtonElement
+  );
 
   return (
     <header className={styles.headerContainer}>
@@ -85,7 +86,6 @@ const Header = () => {
       />
 
       <CartMenu
-        onOpen={onOpenCart}
         isOpenCart={isOpenCart}
         btnRef={btnRef}
         onCloseCart={onCloseCart}
