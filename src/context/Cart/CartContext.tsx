@@ -1,3 +1,4 @@
+import { useToast } from "@chakra-ui/react";
 import React, { Reducer, useReducer } from "react";
 
 export interface ICartContext {
@@ -40,11 +41,40 @@ export default function CartProvider({
     initialState
   );
 
+  const toast = useToast();
+
   const updateCart = (type: string, payload: IItem) => {
+    toast({
+      position: 'top-right',
+      title: 'Buyed!',
+      description: payload.title,
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    })
     cartDispatch({ type, payload });
   };
 
   const clearCart = () => {
+    if(cartState.length === 0) {
+      return toast({
+        position: 'top-right',
+        title: 'Empty cart!',
+        description: "The cart is already empty",
+        status: 'warning',
+        duration: 3000,
+        isClosable: true,
+      })
+    }
+
+    toast({
+      position: 'top-right',
+      title: 'Emptied cart!',
+      description: "Your cart has been successfully emptied",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    })
     cartDispatch({ type: "clear" });
   };
 

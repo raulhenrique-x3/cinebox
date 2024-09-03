@@ -63,7 +63,7 @@ const MobileMenu: React.FC<IMobileMenu> = ({
               </InputRightElement>
               <Input variant="filled" placeholder="Search..." />
             </InputGroup>
-          </form>{" "}
+          </form>
         </DrawerHeader>
 
         <DrawerBody>

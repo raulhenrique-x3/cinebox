@@ -41,6 +41,7 @@ const Header = () => {
         justifyContent={"space-between"}
       >
         <Logo />
+
         <form>
           <InputGroup w={"100%"} display={{ base: "none", md: "block" }}>
             <InputRightElement pointerEvents="none">
@@ -53,24 +54,23 @@ const Header = () => {
         <ButtonGroup variant="outline" spacing="6">
           <Icon
             color={"#fff"}
-            w={8}
-            h={8}
+            w={6}
+            h={6}
             cursor={"pointer"}
             as={BsFillSuitHeartFill}
           />
           <Icon
             color={"#fff"}
-            w={8}
-            h={8}
+            w={6}
+            h={6}
             cursor={"pointer"}
             onClick={onOpenCart}
             as={BsFillCartFill}
           />
           <Icon
-            display={{ base: "block", md: "none" }}
             color={"#fff"}
-            w={8}
-            h={8}
+            w={6}
+            h={6}
             cursor={"pointer"}
             onClick={onOpenMobileMenu}
             as={BiMenu}
