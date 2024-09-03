@@ -79,6 +79,14 @@ export default function CartProvider({
   };
 
   const removeFromCart = (id: string) => {
+    toast({
+      position: 'top-right',
+      title: 'Removed from cart!',
+      description: "Your cart has been successfully updated",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    })
     cartDispatch({ type: "remove", payload: { id } });
   };
 
